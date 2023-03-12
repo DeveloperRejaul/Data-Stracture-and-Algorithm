@@ -1,0 +1,1 @@
+let yourArray = ["apple", 2 , true , "mango", "bannana"]
