@@ -129,6 +129,15 @@ class CArray extends Array {
         return false
     }
 
+    reduce(cb, val) {
+        let result = val !== undefined ? val : this.arr[0];
+        const startIdx = val !== undefined ? 0 : 1;
+    
+        for (let k = startIdx; k < this.i; k++) result = cb(result, this.arr[k]);
+        return result;
+    }
+
+
     
 }
 
@@ -137,13 +146,28 @@ const arr = new CArray(100);
 
 arr.push(300)
 arr.push(200)
-console.log(arr.some((val, i)=> val == 100));
-console.log(arr.arr);
+arr.push(200)
+arr.push(200)
+const res = arr.reduce((a, b)=>{
+    // console.log(b);
+    return a+b
+})
+console.log(res);
+
+
 
 // const ar = new Array(100);
-// ar.unshift(100)
 // ar.unshift(200)
-// console.log(ar.find((val, i)=> val == 300));
-// console.log(ar);
+// ar.unshift(100)
+// ar.unshift(50)
+// ar.unshift(25)
+// ar.unshift(15)
+
+// const res = ar.reduce((a, b)=> {
+//     // console.log("a: "+ a);
+//     console.log("b: "+ b);
+// })
+
+
 
 
